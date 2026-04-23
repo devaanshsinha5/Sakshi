@@ -629,7 +629,7 @@ document.addEventListener('click', firstInteractionPlay);
 document.addEventListener('keydown', firstInteractionPlay);
 if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
 else init();
-  (function spawnPetals(){
+  function spawnPetals(){
   var canvas = document.getElementById('petal-canvas');
   if(!canvas || canvas.dataset.spawned) return;
   canvas.dataset.spawned = '1';
@@ -652,7 +652,7 @@ else init();
       'filter:saturate(1.1);';
     canvas.appendChild(p);
   }
-})();
+};
 </script>
   <div id="petal-canvas"></div>
 </body>
