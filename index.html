@@ -630,13 +630,13 @@ document.addEventListener('keydown', firstInteractionPlay);
 if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
 else init();
   (function(){
-  var canvas = document.getElementById('petal-canvas');
   var PETAL_COUNT = 18;
   var created = false;
 
   function spawnPetals(){
     if(created) return;
     created = true;
+    var canvas = document.getElementById('petal-canvas');
     canvas.classList.add('active');
     for(var i=0;i<PETAL_COUNT;i++){
       var p = document.createElement('div');
