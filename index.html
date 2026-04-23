@@ -400,6 +400,14 @@ body{font-family:'IM Fell English',Georgia,serif;background:var(--parchment);col
       <div class="candle"><div class="candle-flame" style="--fs:.75s;"></div><div class="candle-wick"></div><div class="candle-body"></div></div>
     </div>
     <p class="birthday-wish">Make a wish, <em>Sakshi.</em><br>You deserve every one of them.</p>
+  <div style="text-align:center;margin-top:2rem;">
+  <button onclick="goToPage3()"
+    style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;background:none;border:2px solid #b8860b;color:#b8860b;padding:0.8rem 2.5rem;cursor:pointer;letter-spacing:0.15em;border-radius:2px;transition:all 0.3s;"
+    onmouseover="this.style.background='#b8860b';this.style.color='#faf6ed'"
+    onmouseout="this.style.background='none';this.style.color='#b8860b'">
+    🎁 Your Gifts
+  </button>
+</div>
   </div>
 </div>
 
@@ -655,5 +663,623 @@ else init();
 };
 </script>
   <div id="petal-canvas"></div>
+<!-- ============================================================ -->
+<!-- PAGE 3: GIFT HUB                                             -->
+<!-- ============================================================ -->
+<div id="page3" style="display:none; min-height:100vh; background:#faf6ed; font-family:'Cormorant Garamond',serif; position:relative; overflow:hidden;">
+
+  <!-- Decorative corner flourishes -->
+  <svg style="position:absolute;top:0;left:0;width:180px;height:180px;opacity:0.12;pointer-events:none" viewBox="0 0 180 180">
+    <path d="M0,0 Q90,0 90,90 Q90,0 180,0" fill="none" stroke="#b8860b" stroke-width="1.5"/>
+    <path d="M0,0 Q60,0 60,60 Q60,0 120,0" fill="none" stroke="#b8860b" stroke-width="1"/>
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#b8860b" stroke-width="1"/>
+    <circle cx="180" cy="0" r="5" fill="none" stroke="#8b3a52" stroke-width="0.8"/>
+  </svg>
+  <svg style="position:absolute;bottom:0;right:0;width:180px;height:180px;opacity:0.12;pointer-events:none;transform:rotate(180deg)" viewBox="0 0 180 180">
+    <path d="M0,0 Q90,0 90,90 Q90,0 180,0" fill="none" stroke="#b8860b" stroke-width="1.5"/>
+    <path d="M0,0 Q60,0 60,60 Q60,0 120,0" fill="none" stroke="#b8860b" stroke-width="1"/>
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#b8860b" stroke-width="1"/>
+  </svg>
+
+  <div style="max-width:860px;margin:0 auto;padding:5rem 2rem 4rem;text-align:center;">
+
+    <!-- Back button -->
+    <div style="text-align:left;margin-bottom:2rem;">
+      <button onclick="goBackToPage2()" style="background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;color:#8b3a52;letter-spacing:0.08em;padding:0;">← back</button>
+    </div>
+
+    <!-- Title -->
+    <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:1.1rem;letter-spacing:0.2em;margin-bottom:0.4rem;opacity:0.8">for my love,</p>
+    <h1 style="font-family:'IM Fell English',serif;font-size:3.5rem;color:#2c1a0e;margin:0 0 0.3rem;font-weight:400">Your Gifts</h1>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#8b3a52;font-size:1.2rem;margin:0 0 3.5rem">three little tokens of everything you mean to me ♡</p>
+
+    <!-- Three gift cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;max-width:800px;margin:0 auto;">
+
+      <!-- Gift 1: Gallery -->
+      <div onclick="openGiftPage('gallery')" class="gift-card" style="
+        background:#fff;
+        border:1px solid #e8d8c0;
+        border-radius:4px;
+        padding:2.5rem 1.5rem;
+        cursor:pointer;
+        transition:all 0.35s;
+        position:relative;
+        overflow:hidden;
+      ">
+        <div style="font-size:2.8rem;margin-bottom:1rem">👜</div>
+        <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.85rem;letter-spacing:0.15em;margin:0 0 0.5rem">Gift 1</p>
+        <h3 style="font-family:'IM Fell English',serif;font-size:1.4rem;color:#2c1a0e;font-weight:400;margin:0 0 0.8rem">The Wishlist</h3>
+        <p style="font-size:0.95rem;color:#8b5e3c;line-height:1.6;margin:0">Everything beautiful you deserve</p>
+        <div style="margin-top:1.5rem;font-size:0.8rem;color:#b8860b;letter-spacing:0.12em">open →</div>
+      </div>
+
+      <!-- Gift 2: Polaroid -->
+      <div onclick="openGiftPage('polaroid')" class="gift-card" style="
+        background:#fff;
+        border:1px solid #e8d8c0;
+        border-radius:4px;
+        padding:2.5rem 1.5rem;
+        cursor:pointer;
+        transition:all 0.35s;
+        position:relative;
+        overflow:hidden;
+      ">
+        <div style="font-size:2.8rem;margin-bottom:1rem">📷</div>
+        <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.85rem;letter-spacing:0.15em;margin:0 0 0.5rem">Gift 2</p>
+        <h3 style="font-family:'IM Fell English',serif;font-size:1.4rem;color:#2c1a0e;font-weight:400;margin:0 0 0.8rem">Us, Always</h3>
+        <p style="font-size:0.95rem;color:#8b5e3c;line-height:1.6;margin:0">A moment we never want to forget</p>
+        <div style="margin-top:1.5rem;font-size:0.8rem;color:#b8860b;letter-spacing:0.12em">open →</div>
+      </div>
+
+      <!-- Gift 3: Contract -->
+      <div onclick="openGiftPage('contract')" class="gift-card" style="
+        background:#fff;
+        border:1px solid #e8d8c0;
+        border-radius:4px;
+        padding:2.5rem 1.5rem;
+        cursor:pointer;
+        transition:all 0.35s;
+        position:relative;
+        overflow:hidden;
+      ">
+        <div style="font-size:2.8rem;margin-bottom:1rem">📜</div>
+        <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.85rem;letter-spacing:0.15em;margin:0 0 0.5rem">Gift 3</p>
+        <h3 style="font-family:'IM Fell English',serif;font-size:1.4rem;color:#2c1a0e;font-weight:400;margin:0 0 0.8rem">The Contract</h3>
+        <p style="font-size:0.95rem;color:#8b5e3c;line-height:1.6;margin:0">A binding declaration. No take-backs.</p>
+        <div style="margin-top:1.5rem;font-size:0.8rem;color:#b8860b;letter-spacing:0.12em">open →</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- GIFT PAGE: GALLERY                                           -->
+<!-- ============================================================ -->
+<div id="gift-gallery" style="display:none;min-height:100vh;background:#faf6ed;font-family:'Cormorant Garamond',serif;position:relative;overflow:hidden;">
+
+  <div style="max-width:1100px;margin:0 auto;padding:3.5rem 2rem;">
+
+    <button onclick="closeGiftPage()" style="background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;color:#8b3a52;letter-spacing:0.08em;padding:0;margin-bottom:2.5rem;display:block">← back to gifts</button>
+
+    <div style="text-align:center;margin-bottom:3rem;">
+      <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:1rem;letter-spacing:0.2em;margin-bottom:0.3rem">because you deserve it all</p>
+      <h1 style="font-family:'IM Fell English',serif;font-size:3rem;color:#2c1a0e;margin:0;font-weight:400">The Wishlist</h1>
+      <p style="font-style:italic;color:#8b5e3c;margin-top:0.5rem;font-size:1.1rem">pick your favorites, baby. they're all yours.</p>
+    </div>
+
+    <!-- Scattered gallery grid — mixed sizes, slight rotations -->
+    <div id="gallery-grid" style="position:relative;min-height:900px;">
+
+      <!-- Item 1: Chanel Bag -->
+      <div class="gallery-item" style="position:absolute;top:0;left:2%;transform:rotate(-2deg);width:280px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80" alt="Chanel Classic Flap Bag" style="width:100%;height:220px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=Chanel+Flap+Bag'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">Chanel Classic Flap</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">Medium · Caviar Leather · Gold Hardware</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $10,800</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: Louis Vuitton -->
+      <div class="gallery-item" style="position:absolute;top:30px;left:33%;transform:rotate(1.5deg);width:260px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&q=80" alt="Louis Vuitton Bag" style="width:100%;height:210px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=Louis+Vuitton'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">Louis Vuitton Neverfull</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">MM · Damier Ebene Canvas</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $2,050</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Perfume -->
+      <div class="gallery-item" style="position:absolute;top:10px;right:2%;transform:rotate(2.5deg);width:250px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500&q=80" alt="Luxury Perfume" style="width:100%;height:200px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=Perfume'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">Chanel No. 5 L'Eau</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">100ml Eau de Toilette</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $195</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4: Makeup - Charlotte Tilbury -->
+      <div class="gallery-item" style="position:absolute;top:330px;left:5%;transform:rotate(-1.5deg);width:270px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&q=80" alt="Luxury Makeup" style="width:100%;height:210px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=Charlotte+Tilbury'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">Charlotte Tilbury Vault</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">Hollywood Beauty Icons Collection</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $350</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: Dior Perfume -->
+      <div class="gallery-item" style="position:absolute;top:340px;left:38%;transform:rotate(2deg);width:255px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=500&q=80" alt="Dior Perfume" style="width:100%;height:205px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=Dior+Perfume'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">Dior Miss Dior</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">Blooming Bouquet · 100ml EDP</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $165</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6: Gucci bag -->
+      <div class="gallery-item" style="position:absolute;top:310px;right:2%;transform:rotate(-2.5deg);width:265px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500&q=80" alt="Gucci Bag" style="width:100%;height:215px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=Gucci+Bag'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">Gucci Marmont Mini</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">Matelassé Leather · Dusty Pink</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $1,350</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating label in middle -->
+      <div style="position:absolute;top:590px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;">
+        <p style="font-family:'Satisfy',cursive;color:#8b3a52;font-size:1.4rem;opacity:0.5;margin:0">♡ &nbsp; yours if you want it &nbsp; ♡</p>
+      </div>
+
+      <!-- Item 7: Skincare -->
+      <div class="gallery-item" style="position:absolute;top:660px;left:8%;transform:rotate(1.8deg);width:260px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1570194065650-d99fb4d8a609?w=500&q=80" alt="La Mer Skincare" style="width:100%;height:205px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=La+Mer'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">La Mer Crème</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">The Moisturizing Cream · 60ml</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $395</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 8: Jewelry -->
+      <div class="gallery-item" style="position:absolute;top:640px;left:36%;transform:rotate(-1.2deg);width:275px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=500&q=80" alt="Tiffany Jewelry" style="width:100%;height:215px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=Tiffany+Jewelry'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">Tiffany & Co.</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">Diamond Solitaire Pendant · 18K Gold</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $2,200</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 9: Makeup palette -->
+      <div class="gallery-item" style="position:absolute;top:670px;right:3%;transform:rotate(2.2deg);width:255px;">
+        <div style="background:#fff;padding:14px 14px 40px;box-shadow:3px 3px 18px rgba(44,26,14,0.12);">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500&q=80" alt="Luxury Makeup Palette" style="width:100%;height:205px;object-fit:cover;display:block;" onerror="this.src='https://via.placeholder.com/500x400?text=Makeup+Palette'"/>
+          <div style="margin-top:12px;">
+            <p style="font-family:'IM Fell English',serif;font-size:1.05rem;color:#2c1a0e;margin:0 0 2px">Tom Ford Eyeshadow</p>
+            <p style="font-size:0.85rem;color:#8b5e3c;margin:0 0 4px">Eye Color Quad · Disco Dust</p>
+            <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:0.9rem;margin:0">~ $90</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end gallery-grid -->
+
+    <div style="text-align:center;padding:2rem 0 1rem;margin-top:2rem;">
+      <p style="font-family:'IM Fell English',serif;font-style:italic;color:#8b3a52;font-size:1.1rem">just say the word. anything for you. ♡</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- GIFT PAGE: POLAROID                                          -->
+<!-- ============================================================ -->
+<div id="gift-polaroid" style="display:none;min-height:100vh;background:#faf6ed;font-family:'Cormorant Garamond',serif;position:relative;overflow:hidden;">
+
+  <!-- Floating hearts background -->
+  <div id="hearts-bg" style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;"></div>
+
+  <div style="position:relative;z-index:1;max-width:700px;margin:0 auto;padding:3.5rem 2rem;text-align:center;">
+
+    <button onclick="closeGiftPage()" style="background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;color:#8b3a52;letter-spacing:0.08em;padding:0;margin-bottom:2rem;display:block;text-align:left">← back to gifts</button>
+
+    <!-- Scattered decorative elements top -->
+    <div style="position:relative;height:60px;margin-bottom:1rem;">
+      <span style="position:absolute;left:10%;font-size:1.5rem;transform:rotate(-15deg);color:#8b3a52;opacity:0.5">♡</span>
+      <span style="position:absolute;left:25%;font-size:0.9rem;font-family:'Satisfy',cursive;color:#b8860b;transform:rotate(8deg);opacity:0.6;top:10px">forever</span>
+      <span style="position:absolute;left:55%;font-size:1.8rem;transform:rotate(10deg);color:#b8860b;opacity:0.4">✦</span>
+      <span style="position:absolute;right:20%;font-size:1.1rem;transform:rotate(-8deg);color:#8b3a52;opacity:0.5">♡</span>
+      <span style="position:absolute;right:5%;font-size:0.85rem;font-family:'Satisfy',cursive;color:#8b3a52;transform:rotate(12deg);opacity:0.6;top:5px">always</span>
+    </div>
+
+    <p style="font-family:'Satisfy',cursive;color:#b8860b;font-size:1.1rem;letter-spacing:0.15em;margin-bottom:0.3rem">us, in a frame</p>
+    <h1 style="font-family:'IM Fell English',serif;font-size:2.8rem;color:#2c1a0e;margin:0 0 0.4rem;font-weight:400">Our Favorite Moment</h1>
+    <p style="font-style:italic;color:#8b5e3c;margin:0 0 3rem;font-size:1.05rem">because every moment with you is my favorite one.</p>
+
+    <!-- Polaroid frame -->
+    <div style="display:inline-block;transform:rotate(-1.5deg);margin:0 auto 2.5rem;">
+      <div style="
+        background:#fff;
+        padding:18px 18px 60px;
+        box-shadow: 4px 6px 30px rgba(44,26,14,0.18), 0 1px 4px rgba(44,26,14,0.08);
+        display:inline-block;
+        max-width:340px;
+        width:100%;
+      ">
+        <!-- REPLACE src below with your actual photo path e.g. src="photo.jpg" -->
+        <img 
+          src="IMG_6444.jpeg" 
+          alt="Us ♡" 
+          style="width:100%;height:320px;object-fit:cover;display:block;background:#f0e8d8;"
+          onerror="this.style.background='linear-gradient(135deg,#f5eedc,#e8d0b0)';this.style.display='flex';this.removeAttribute('src');this.insertAdjacentHTML('afterend','<div style=\'height:320px;background:linear-gradient(135deg,#f5eedc,#e8d0b0);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem\'><span style=\'font-size:3rem\'>📷</span><p style=\'font-family:Satisfy,cursive;color:#8b3a52;font-size:1rem;margin:0\'>our photo goes here</p></div>')"
+        />
+        <div style="padding-top:12px;text-align:center;">
+          <p style="font-family:'Caveat',cursive;font-size:1.3rem;color:#2c1a0e;margin:0;line-height:1.4">Sakshi & Devaansh ♡</p>
+          <p style="font-family:'Caveat',cursive;font-size:1rem;color:#8b5e3c;margin:4px 0 0">my person, always.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative scattered text -->
+    <div style="position:relative;margin:1rem 0 2.5rem;">
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 2rem;align-items:center;">
+        <span style="font-family:'Satisfy',cursive;color:#8b3a52;font-size:1.1rem;transform:rotate(-4deg);display:inline-block;opacity:0.8">my home ♡</span>
+        <span style="font-size:1.4rem;color:#b8860b;opacity:0.6">✦</span>
+        <span style="font-family:'IM Fell English',serif;font-style:italic;color:#2c1a0e;font-size:1.05rem;opacity:0.7">the one I choose, every day</span>
+        <span style="font-size:1.4rem;color:#b8860b;opacity:0.6">✦</span>
+        <span style="font-family:'Satisfy',cursive;color:#8b3a52;font-size:1.1rem;transform:rotate(3deg);display:inline-block;opacity:0.8">forever mine ♡</span>
+      </div>
+    </div>
+
+    <!-- Love note card -->
+    <div style="
+      background:#fff8f0;
+      border:1px solid #e8d8c0;
+      border-radius:2px;
+      padding:2rem 2.5rem;
+      margin:0 auto;
+      max-width:500px;
+      position:relative;
+    ">
+      <!-- Washi tape decoration -->
+      <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:80px;height:20px;background:rgba(139,58,82,0.15);border-radius:2px;"></div>
+      <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:1.15rem;color:#2c1a0e;line-height:1.8;margin:0;">
+        This photo is just a tiny piece of all the memories we've made and all the ones still waiting for us.
+        You make every ordinary day feel like something worth keeping.
+      </p>
+      <p style="font-family:'Satisfy',cursive;color:#8b3a52;font-size:1.1rem;margin:1.2rem 0 0;text-align:right">— D ♡</p>
+    </div>
+
+    <!-- More scattered decorations below -->
+    <div style="position:relative;height:70px;margin-top:1.5rem;">
+      <span style="position:absolute;left:5%;font-size:1.3rem;color:#8b3a52;opacity:0.4;transform:rotate(20deg)">♡</span>
+      <span style="position:absolute;left:20%;font-size:0.9rem;font-family:'Caveat',cursive;color:#b8860b;opacity:0.5;transform:rotate(-10deg);top:15px">tu hi hai ♡</span>
+      <span style="position:absolute;right:25%;font-size:1.5rem;color:#b8860b;opacity:0.35;transform:rotate(-15deg)">✦</span>
+      <span style="position:absolute;right:8%;font-size:1rem;font-family:'Satisfy',cursive;color:#8b3a52;opacity:0.5;transform:rotate(8deg);top:8px">always you</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- GIFT PAGE: CONTRACT                                          -->
+<!-- ============================================================ -->
+<div id="gift-contract" style="display:none;min-height:100vh;background:#f5f0e8;font-family:'Times New Roman',Times,serif;position:relative;">
+
+  <!-- Paper texture overlay -->
+  <div style="position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(44,26,14,0.03) 27px,rgba(44,26,14,0.03) 28px);pointer-events:none;z-index:0;"></div>
+
+  <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;padding:3rem 2rem 4rem;">
+
+    <button onclick="closeGiftPage()" style="background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;color:#8b3a52;letter-spacing:0.08em;padding:0;margin-bottom:2rem;display:block">← back to gifts</button>
+
+    <!-- Document wrapper -->
+    <div style="
+      background:#fffef9;
+      border:1px solid #c8b89a;
+      padding:4rem 5rem;
+      box-shadow:0 4px 40px rgba(44,26,14,0.12), inset 0 0 0 8px #fffef9, inset 0 0 0 9px #e8d8c0;
+      position:relative;
+    ">
+
+      <!-- Top border line -->
+      <div style="border-top:3px double #2c1a0e;border-bottom:1px solid #2c1a0e;padding:6px 0 4px;margin-bottom:2.5rem;text-align:center;">
+        <p style="font-size:0.7rem;letter-spacing:0.3em;color:#2c1a0e;margin:0;text-transform:uppercase">Certified · Witnessed · Irrevocable</p>
+      </div>
+
+      <!-- Header seal area -->
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <div style="width:70px;height:70px;border-radius:50%;border:2px solid #2c1a0e;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.6rem;">♡</div>
+        <p style="font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:#2c1a0e;margin:0 0 1rem">The Office of Devaansh Sinha</p>
+        <h1 style="font-size:1.8rem;font-weight:700;color:#2c1a0e;margin:0;letter-spacing:0.05em;text-transform:uppercase">Contract of Undying Loyalty</h1>
+        <p style="font-size:0.7rem;letter-spacing:0.25em;color:#5c4a30;margin:0.5rem 0 0;text-transform:uppercase">and Absolute, Non-Negotiable Devotion</p>
+      </div>
+
+      <div style="border-top:1px solid #2c1a0e;margin:0 0 2rem;"></div>
+
+      <!-- Preamble -->
+      <p style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:#5c4a30;margin:0 0 1rem;font-weight:700">Preamble</p>
+
+      <p style="font-size:1rem;line-height:1.9;color:#2c1a0e;margin:0 0 1.5rem;text-align:justify;">
+        This legally binding, emotionally enforceable, and spiritually certified document hereby establishes the terms and conditions governing the relationship between 
+        <strong>Devaansh Sinha</strong> (hereinafter referred to as "The Devoted One," "Your Person," or "That Guy Who Loves You Embarrassingly Much") 
+        and <strong>Sakshi Singh</strong> (hereinafter referred to as "The Love of His Life," "The Prettiest One in Every Room," or simply "Baby").
+      </p>
+
+      <div style="border-top:1px solid #c8b89a;margin:1.5rem 0;"></div>
+
+      <!-- Article 1 -->
+      <p style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:#5c4a30;margin:0 0 0.8rem;font-weight:700">Article I — Loyalty</p>
+      <p style="font-size:1rem;line-height:1.9;color:#2c1a0e;margin:0 0 1.5rem;text-align:justify;">
+        Section 1.1: The Devoted One hereby declares, under penalty of having to watch a sad movie together and cry about it, that his loyalty to The Love of His Life is total, unconditional, and frankly a little embarrassing to admit in public. He has tried to imagine a version of himself that is not completely devoted to her. It did not compute. <br><br>
+        Section 1.2: Said loyalty shall not expire, depreciate, or diminish upon the occurrence of any of the following: bad moods, long distances, sleepy arguments, or the fact that she sometimes steals the blanket.
+      </p>
+
+      <div style="border-top:1px solid #c8b89a;margin:1.5rem 0;"></div>
+
+      <!-- Article 2 -->
+      <p style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:#5c4a30;margin:0 0 0.8rem;font-weight:700">Article II — Obligations of The Devoted One</p>
+      <p style="font-size:1rem;line-height:1.9;color:#2c1a0e;margin:0 0 0.5rem;text-align:justify;">The Devoted One agrees, without coercion (mostly), to the following:</p>
+      <ol style="font-size:1rem;line-height:2.1;color:#2c1a0e;margin:0 0 1.5rem;padding-left:1.5rem;">
+        <li>To love her loudly when she needs it, and quietly when she needs that more.</li>
+        <li>To be the first person she calls when things go wrong and the one she tells first when things go right.</li>
+        <li>To take her side in all matters, except when she is objectively wrong, in which case he will take her side anyway and tell her privately.</li>
+        <li>To show up. Always. In every way that counts.</li>
+        <li>To think she is beautiful on every day, including and especially on the days she does not believe it herself.</li>
+        <li>To be patient with her, grow with her, and never stop choosing her.</li>
+        <li>To buy her things from the wishlist (Gift 1) at earliest financially viable opportunity.</li>
+      </ol>
+
+      <div style="border-top:1px solid #c8b89a;margin:1.5rem 0;"></div>
+
+      <!-- Article 3 -->
+      <p style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:#5c4a30;margin:0 0 0.8rem;font-weight:700">Article III — Duration & Termination</p>
+      <p style="font-size:1rem;line-height:1.9;color:#2c1a0e;margin:0 0 1.5rem;text-align:justify;">
+        This contract shall remain in force for the duration of forever, defined herein as: all the years ahead, every ordinary Tuesday, every hard month, and every moment in between. 
+        Termination of this agreement is not permitted. The Devoted One has reviewed the exit clauses and found them to be unacceptable. There are none.
+      </p>
+
+      <div style="border-top:1px solid #c8b89a;margin:1.5rem 0;"></div>
+
+      <!-- Article 4 -->
+      <p style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:#5c4a30;margin:0 0 0.8rem;font-weight:700">Article IV — Governing Principles</p>
+      <p style="font-size:1rem;line-height:1.9;color:#2c1a0e;margin:0 0 1.5rem;text-align:justify;">
+        This agreement shall be governed by the laws of love, common decency, and the mutual understanding that they are each other's person. In the event of any dispute, the matter shall be resolved by one (1) long hug and the acknowledgment that being together is more important than being right.
+      </p>
+
+      <div style="border-top:2px solid #2c1a0e;margin:2rem 0 2.5rem;"></div>
+
+      <!-- Signatures -->
+      <p style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#5c4a30;margin:0 0 2rem;font-weight:700">In Witness Whereof, the parties have executed this Agreement:</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:2rem;">
+
+        <!-- Party 1: DS -->
+        <div style="border-top:1.5px solid #2c1a0e;padding-top:1rem;">
+          <div style="font-family:'Satisfy',cursive;font-size:1.8rem;color:#1e4d78;margin-bottom:0.3rem;">Devaansh Sinha</div>
+          <p style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#5c4a30;margin:0 0 0.2rem">The Devoted One</p>
+          <p style="font-size:0.75rem;color:#5c4a30;margin:0">Date: Your Birthday, Always</p>
+        </div>
+
+        <!-- Party 2: Sakshi — sign button -->
+        <div style="border-top:1.5px solid #2c1a0e;padding-top:1rem;" id="sakshi-sig-area">
+          <div id="sig-placeholder" style="height:2.5rem;margin-bottom:0.3rem;display:flex;align-items:center;">
+            <button onclick="signContract()" style="
+              font-family:'Times New Roman',Times,serif;
+              font-size:0.8rem;
+              letter-spacing:0.15em;
+              text-transform:uppercase;
+              background:none;
+              border:1px solid #2c1a0e;
+              color:#2c1a0e;
+              padding:0.4rem 1.2rem;
+              cursor:pointer;
+              transition:all 0.2s;
+            " onmouseover="this.style.background='#2c1a0e';this.style.color='#fffef9'"
+               onmouseout="this.style.background='none';this.style.color='#2c1a0e'"
+            >Sign Here</button>
+          </div>
+          <p style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#5c4a30;margin:0 0 0.2rem">The Love of His Life</p>
+          <p style="font-size:0.75rem;color:#5c4a30;margin:0" id="sig-date-line">Date: _______________</p>
+        </div>
+
+      </div>
+
+      <!-- Notary seal -->
+      <div style="text-align:center;margin-top:1rem;">
+        <div style="display:inline-block;border:2px solid #c8b89a;border-radius:50%;width:90px;height:90px;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;">
+          <span style="font-size:1.4rem;line-height:1">♡</span>
+          <span style="font-size:0.45rem;letter-spacing:0.1em;text-transform:uppercase;color:#5c4a30;text-align:center;line-height:1.4">Certified<br>By Love</span>
+        </div>
+      </div>
+
+      <!-- Bottom border line -->
+      <div style="border-top:1px solid #2c1a0e;border-bottom:3px double #2c1a0e;padding:4px 0 6px;margin-top:2rem;text-align:center;">
+        <p style="font-size:0.65rem;letter-spacing:0.3em;color:#2c1a0e;margin:0;text-transform:uppercase">This document is final · No amendments permitted · No take-backs · Ever</p>
+      </div>
+
+    </div><!-- end document wrapper -->
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- STYLES                                                       -->
+<!-- ============================================================ -->
+<style>
+.gift-card:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 0 12px 40px rgba(44,26,14,0.12);
+  border-color: #b8860b;
+}
+.gallery-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item:hover > div {
+  box-shadow: 6px 8px 30px rgba(44,26,14,0.2) !important;
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}
+#gift-signed-stamp {
+  animation: stampIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+@keyframes stampIn {
+  from { transform: scale(3) rotate(-20deg); opacity:0; }
+  to   { transform: scale(1) rotate(-8deg);  opacity:1; }
+}
+</style>
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT                                                   -->
+<!-- ============================================================ -->
+<script>
+// ── Navigation ──────────────────────────────────────────────────
+
+function goToPage3() {
+  document.getElementById('page2').style.display = 'none';
+  document.getElementById('page3').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+function goBackToPage2() {
+  document.getElementById('page3').style.display = 'none';
+  document.getElementById('page2').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+function openGiftPage(which) {
+  document.getElementById('page3').style.display = 'none';
+  document.getElementById('gift-' + which).style.display = 'block';
+  window.scrollTo(0,0);
+  if (which === 'polaroid') spawnHearts();
+}
+
+function closeGiftPage() {
+  ['gallery','polaroid','contract'].forEach(function(id){
+    document.getElementById('gift-' + id).style.display = 'none';
+  });
+  stopHearts();
+  document.getElementById('page3').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+// ── Contract signature ───────────────────────────────────────────
+
+function signContract() {
+  var placeholder = document.getElementById('sig-placeholder');
+  var dateLine    = document.getElementById('sig-date-line');
+
+  var now  = new Date();
+  var opts = {year:'numeric', month:'long', day:'numeric'};
+  var dateStr = now.toLocaleDateString('en-US', opts);
+
+  placeholder.innerHTML = '<div style="font-family:\'Satisfy\',cursive;font-size:1.8rem;color:#8b3a52;animation:fadeIn 0.6s ease">Sakshi Singh (Devaansh\'s baby)</div>';
+  dateLine.textContent = 'Date: ' + dateStr;
+
+  // Stamp
+  var sigArea = document.getElementById('sakshi-sig-area');
+  var stamp   = document.createElement('div');
+  stamp.id    = 'gift-signed-stamp';
+  stamp.style.cssText = [
+    'position:absolute',
+    'top:-10px',
+    'right:-10px',
+    'transform:rotate(-8deg)',
+    'border:3px solid #8b3a52',
+    'border-radius:4px',
+    'padding:4px 10px',
+    'color:#8b3a52',
+    'font-size:0.7rem',
+    'letter-spacing:0.2em',
+    'text-transform:uppercase',
+    'font-weight:700',
+    'background:rgba(139,58,82,0.05)',
+    'pointer-events:none'
+  ].join(';');
+  stamp.textContent = '✓ Signed';
+  sigArea.style.position = 'relative';
+  sigArea.appendChild(stamp);
+}
+
+// ── Floating hearts on polaroid page ────────────────────────────
+
+var heartInterval = null;
+
+function spawnHearts() {
+  var container = document.getElementById('hearts-bg');
+  if (!container) return;
+  heartInterval = setInterval(function() {
+    var h = document.createElement('span');
+    var chars = ['♡','✦','♡','♡','✿','♡'];
+    h.textContent = chars[Math.floor(Math.random() * chars.length)];
+    var size  = 12 + Math.random() * 18;
+    var left  = Math.random() * 100;
+    var dur   = 6 + Math.random() * 8;
+    var delay = Math.random() * 2;
+    var col   = Math.random() > 0.5 ? '#8b3a52' : '#b8860b';
+    h.style.cssText = [
+      'position:absolute',
+      'bottom:-30px',
+      'left:' + left + '%',
+      'font-size:' + size + 'px',
+      'color:' + col,
+      'opacity:0',
+      'animation:floatHeart ' + dur + 's ' + delay + 's ease-in forwards',
+      'pointer-events:none'
+    ].join(';');
+    container.appendChild(h);
+    setTimeout(function() { h.remove(); }, (dur + delay + 1) * 1000);
+  }, 800);
+}
+
+function stopHearts() {
+  if (heartInterval) { clearInterval(heartInterval); heartInterval = null; }
+  var c = document.getElementById('hearts-bg');
+  if (c) c.innerHTML = '';
+}
+
+// Inject keyframes
+(function() {
+  var s = document.createElement('style');
+  s.textContent = [
+    '@keyframes floatHeart {',
+    '  0%   { transform:translateY(0) rotate(0deg);   opacity:0; }',
+    '  15%  { opacity:0.5; }',
+    '  85%  { opacity:0.3; }',
+    '  100% { transform:translateY(-110vh) rotate(30deg); opacity:0; }',
+    '}',
+    '@keyframes fadeIn {',
+    '  from { opacity:0; transform:translateX(-10px); }',
+    '  to   { opacity:1; transform:translateX(0); }',
+    '}'
+  ].join('');
+  document.head.appendChild(s);
+})();
+</script>
 </body>
+  
 </html>
