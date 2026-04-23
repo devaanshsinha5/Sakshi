@@ -1160,7 +1160,7 @@ else init();
 // ── Navigation ──────────────────────────────────────────────────
 
 function goToPage3() {
-  document.getElementById('page-2').style.display = 'none';
+  document.getElementById('page-2').classList.remove('visible');
   document.getElementById('page3').style.display = 'block';
   window.scrollTo(0,0);
 }
