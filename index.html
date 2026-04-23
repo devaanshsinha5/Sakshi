@@ -199,8 +199,8 @@ body{font-family:'IM Fell English',Georgia,serif;background:var(--parchment);col
   #sheet-left,#sheet-right{display:none;}
 }
   /* Sunflower petals */
-#petal-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;display:none;}
-#page-2.visible ~ #petal-canvas, #petal-canvas.active{display:block;}
+#petal-canvas{position:fixed;inset:0;pointer-events:none;z-index:999;display:none;}
+#petal-canvas.active{display:block;}
 .petal{
   position:absolute;
   width:9px;height:14px;
