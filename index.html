@@ -157,17 +157,21 @@ body{font-family:'IM Fell English',Georgia,serif;background:var(--parchment);col
 .letter-sign span{display:block;font-family:'IM Fell English',serif;font-style:italic;font-size:.85rem;color:var(--ink-light);margin-bottom:.2rem;}
 
 .birthday-footer{text-align:center;padding:2rem 1rem 4rem;position:relative;}
-.candles{display:flex;justify-content:center;gap:1.2rem;margin-bottom:1.5rem;}
-.candle{display:flex;flex-direction:column;align-items:center;}
-.candle-body{width:14px;height:38px;background:linear-gradient(to right,#e8dfc8,var(--parchment),#e8dfc8);border:1px solid rgba(184,134,11,.3);border-radius:1px;}
-.candle-wick{width:1px;height:8px;background:var(--ink);}
-.candle-flame{width:8px;height:12px;background:radial-gradient(ellipse at bottom,#ffd700 0%,#ff8c00 50%,#ff4500 100%);border-radius:50% 50% 30% 30%;animation:flicker var(--fs,.8s) ease-in-out infinite alternate;transform-origin:bottom center;}
-@keyframes flicker{0%{transform:scaleX(1) scaleY(1) rotate(-2deg);opacity:.9;}100%{transform:scaleX(.85) scaleY(1.1) rotate(2deg);opacity:1;}}
-.birthday-wish{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-style:italic;font-weight:300;color:var(--parchment);text-shadow:0 1px 8px rgba(0,0,0,.4);}
-.birthday-wish em{color:var(--gold-light);}
-.sparkle{position:absolute;pointer-events:none;animation:sparkleAnim var(--sd,2s) ease var(--sl,0s) infinite;font-size:var(--ss,12px);color:var(--gold);}
-@keyframes sparkleAnim{0%,100%{opacity:0;transform:scale(0) rotate(0deg);}50%{opacity:1;transform:scale(1) rotate(180deg);}}
+.candles{display:flex;justify-content:center;flex-wrap:nowrap;gap:.5rem;margin:1.5rem auto;max-width:95vw;}
+.candle{position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;padding:4px;}
+.candle-flame{width:8px;height:14px;background:radial-gradient(circle at 50% 70%, #ffeb3b 0%, #ff9800 60%, transparent 100%);border-radius:50% 50% 30% 30%;animation:flicker var(--fs,.8s) ease-in-out infinite alternate;filter:blur(0.3px);transition:opacity .3s ease,transform .3s ease;}
+.candle.blown .candle-flame{opacity:0;transform:scale(0.2) translateY(-8px);}
+.candle-smoke{position:absolute;top:-8px;width:6px;height:14px;background:radial-gradient(circle, rgba(180,180,180,0.6) 0%, transparent 70%);border-radius:50%;opacity:0;pointer-events:none;}
+.candle.blown .candle-smoke{animation:smokeRise 1.2s ease-out forwards;}
+@keyframes smokeRise{0%{opacity:.7;transform:translateY(0) scale(1);}100%{opacity:0;transform:translateY(-30px) scale(1.8);}}
+@keyframes flicker{from{transform:scale(1) translateY(0);}to{transform:scale(1.15,0.95) translateY(-1px);}}
+.candle-wick{width:1px;height:5px;background:#3a2818;}
+.candle-body{width:8px;height:28px;background:linear-gradient(180deg,#faf6ed 0%,#e8dfc8 100%);border:1px solid #b8860b;border-radius:2px;}
 
+.wish-countdown{font-family:'Satisfy',cursive;font-size:1.4rem;color:var(--rose);margin:1rem 0 .5rem;letter-spacing:.05em;min-height:2rem;transition:all .4s ease;}
+.wish-countdown.counting{font-size:2rem;color:var(--gold);text-shadow:0 0 12px rgba(184,134,11,.4);}
+.wish-countdown.wish-now{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.5rem;color:var(--rose);animation:wishPulse 1.5s ease infinite;}
+@keyframes wishPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
 .music-bar{position:fixed;bottom:1.2rem;right:1.4rem;z-index:50;display:flex;align-items:center;gap:.7rem;background:rgba(44,26,14,.9);border:1px solid rgba(184,134,11,.4);border-radius:40px;padding:.5rem 1rem .5rem .7rem;cursor:pointer;transition:opacity .3s;box-shadow:0 2px 12px rgba(44,26,14,.25);}
 .music-bar:hover{opacity:.88;}
 .music-icon{width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -207,7 +211,7 @@ body{font-family:'IM Fell English',Georgia,serif;background:var(--parchment);col
   <span class="music-label">Khat &nbsp;&mdash;&nbsp; Navjot Ahuja</span>
   <div class="music-bars paused" id="bars"><span></span><span></span><span></span><span></span><span></span></div>
 </div>
-<audio id="audio-player" loop preload="auto" src="khat.mp3"></audio>
+<div id="yt-player" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;"></div>
 
 <!-- PAGE 1 -->
 <div id="page-1">
@@ -373,8 +377,8 @@ body{font-family:'IM Fell English',Georgia,serif;background:var(--parchment);col
     <span class="sparkle" style="top:20%;right:12%;--sd:1.8s;--sl:.5s;--ss:10px;">✦</span>
     <span class="sparkle" style="top:60%;left:8%;--sd:2.5s;--sl:1s;--ss:12px;">✦</span>
     <span class="sparkle" style="top:70%;right:8%;--sd:2s;--sl:.3s;--ss:16px;">✦</span>
-    <div class="candles">
-      <div class="candle"><div class="candle-flame" style="--fs:.7s;"></div><div class="candle-wick"></div><div class="candle-body"></div></div>
+    <div class="candles" id="candles-row"></div>
+<div class="wish-countdown" id="wish-countdown">Blow them all out...</div>
       <div class="candle"><div class="candle-flame" style="--fs:.9s;"></div><div class="candle-wick"></div><div class="candle-body"></div></div>
       <div class="candle"><div class="candle-flame" style="--fs:.75s;"></div><div class="candle-wick"></div><div class="candle-body"></div></div>
     </div>
@@ -402,20 +406,29 @@ var GRID = 20;
 var visited, visitedCount=0, totalCells;
 
 // Music
-var player, isPlaying=false;
-var player = document.getElementById('audio-player');
-if (player) player.volume = 0.6;
+var player, isPlaying=false, ytReady=false;
+window.onYouTubeIframeAPIReady = function() {
+  ytReady=true;
+  player=new YT.Player('yt-player',{
+    height:'1',width:'1',videoId:'QE7J7jqy4QY',
+    playerVars:{autoplay:0,loop:1,playlist:'QE7J7jqy4QY',controls:0,disablekb:1,fs:0,iv_load_policy:3,modestbranding:1,rel:0},
+    events:{onReady:function(e){e.target.setVolume(60);}}
+  });
+};
+(function(){var t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';document.head.appendChild(t);})();
 
 function startMusic() {
+  if (!ytReady||!player||typeof player.playVideo!=='function') return;
   if (!isPlaying) {
-    player.play();isPlaying=true;
+    player.playVideo();isPlaying=true;
     document.getElementById('bars').classList.remove('paused');
     document.getElementById('play-icon').innerHTML='<rect x="1" y="1" width="3" height="10"/><rect x="6" y="1" width="3" height="10"/>';
   }
 }
 function toggleMusic() {
+  if (!ytReady||!player||typeof player.playVideo!=='function') return;
   if (isPlaying) {
-    player.pause();isPlaying=false;
+    player.pauseVideo();isPlaying=false;
     document.getElementById('bars').classList.add('paused');
     document.getElementById('play-icon').innerHTML='<path d="M2 1l7 5-7 5V1z"/>';
   } else { startMusic(); }
@@ -547,6 +560,53 @@ function openEnvelope() {
     setTimeout(function(){o.classList.remove('active');},200);
   },700);
 }
+
+function buildCandles() {
+  var row = document.getElementById('candles-row');
+  if (!row) return;
+  var speeds = ['.7s','.8s','.9s','.75s','.85s','.95s'];
+  for (var i=0;i<23;i++) {
+    var c = document.createElement('div');
+    c.className = 'candle';
+    c.innerHTML = '<div class="candle-smoke"></div>' +
+                  '<div class="candle-flame" style="--fs:'+speeds[i%speeds.length]+';"></div>' +
+                  '<div class="candle-wick"></div>' +
+                  '<div class="candle-body"></div>';
+    c.addEventListener('mouseenter', blowCandle);
+    c.addEventListener('touchstart', blowCandle, {passive:true});
+    row.appendChild(c);
+  }
+}
+
+var blownCount = 0;
+var TOTAL_CANDLES = 23;
+var countdownLabel = null;
+
+function blowCandle(e) {
+  var c = e.currentTarget;
+  if (c.classList.contains('blown')) return;
+  c.classList.add('blown');
+  blownCount++;
+  updateCountdown();
+}
+
+function updateCountdown() {
+  if (!countdownLabel) countdownLabel = document.getElementById('wish-countdown');
+  var remaining = TOTAL_CANDLES - blownCount;
+  countdownLabel.classList.remove('counting','wish-now');
+
+  if (remaining > 5) {
+    countdownLabel.textContent = remaining + ' more to blow...';
+  } else if (remaining > 0) {
+    countdownLabel.classList.add('counting');
+    countdownLabel.textContent = 'Make a wish in ' + remaining + '...';
+  } else {
+    countdownLabel.classList.add('wish-now');
+    countdownLabel.textContent = '✨ Make your wish, Sakshi ✨';
+  }
+}
+
+buildCandles();
 
 if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
 else init();
