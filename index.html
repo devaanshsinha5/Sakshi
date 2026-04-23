@@ -1160,14 +1160,14 @@ else init();
 // ── Navigation ──────────────────────────────────────────────────
 
 function goToPage3() {
-  document.getElementById('page2').style.display = 'none';
+  document.getElementById('page-2').style.display = 'none';
   document.getElementById('page3').style.display = 'block';
   window.scrollTo(0,0);
 }
 
 function goBackToPage2() {
   document.getElementById('page3').style.display = 'none';
-  document.getElementById('page-2').style.display = 'block';
+  document.getElementById('page-2').classList.add('visible');
   window.scrollTo(0,0);
 }
 
