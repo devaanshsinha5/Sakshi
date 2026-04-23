@@ -198,6 +198,24 @@ body{font-family:'IM Fell English',Georgia,serif;background:var(--parchment);col
   .flip-card{width:100%;max-width:340px;height:420px;}
   #sheet-left,#sheet-right{display:none;}
 }
+  /* Sunflower petals */
+#petal-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;display:none;}
+#page-2.visible ~ #petal-canvas, #petal-canvas.active{display:block;}
+.petal{
+  position:absolute;
+  width:9px;height:14px;
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  background:#e8b400;
+  opacity:0;
+  animation:petalFall linear infinite;
+  transform-origin:center top;
+}
+@keyframes petalFall{
+  0%  {opacity:0;  transform:translateY(-20px) rotate(0deg) scale(1);}
+  8%  {opacity:0.85;}
+  85% {opacity:0.7;}
+  100%{opacity:0;  transform:translateY(100vh) rotate(340deg) scale(0.7);}
+}
 </style>
 </head>
 <body>
@@ -611,6 +629,47 @@ document.addEventListener('click', firstInteractionPlay);
 document.addEventListener('keydown', firstInteractionPlay);
 if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
 else init();
+  (function(){
+  var canvas = document.getElementById('petal-canvas');
+  var PETAL_COUNT = 18;
+  var created = false;
+
+  function spawnPetals(){
+    if(created) return;
+    created = true;
+    canvas.classList.add('active');
+    for(var i=0;i<PETAL_COUNT;i++){
+      var p = document.createElement('div');
+      p.className = 'petal';
+      var dur = 6 + Math.random()*7;
+      var delay = Math.random()*10;
+      var left = Math.random()*100;
+      var tilt = (Math.random()-0.5)*30;
+      var scale = 0.6 + Math.random()*0.7;
+      // slight golden variation
+      var hue = 38 + Math.floor(Math.random()*14);
+      p.style.cssText =
+        'left:'+left+'vw;'+
+        'top:-20px;'+
+        'animation-duration:'+dur+'s;'+
+        'animation-delay:'+delay+'s;'+
+        'transform:rotate('+tilt+'deg) scale('+scale+');'+
+        'background:hsl('+hue+',90%,48%);'+
+        'filter:saturate(1.1);';
+      canvas.appendChild(p);
+    }
+  }
+
+  // Watch for page-2 becoming visible
+  var observer = new MutationObserver(function(mutations){
+    mutations.forEach(function(m){
+      if(m.target.classList.contains('visible')) spawnPetals();
+    });
+  });
+  var p2 = document.getElementById('page-2');
+  if(p2) observer.observe(p2, {attributes:true, attributeFilter:['class']});
+})();
 </script>
+  <div id="petal-canvas"></div>
 </body>
 </html>
