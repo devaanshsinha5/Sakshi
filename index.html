@@ -598,7 +598,17 @@ function updateCountdown() {
 }
 
 buildCandles();
-
+function firstInteractionPlay() {
+  startMusic();
+  document.removeEventListener('mousemove', firstInteractionPlay);
+  document.removeEventListener('touchstart', firstInteractionPlay);
+  document.removeEventListener('click', firstInteractionPlay);
+  document.removeEventListener('keydown', firstInteractionPlay);
+}
+document.addEventListener('mousemove', firstInteractionPlay);
+document.addEventListener('touchstart', firstInteractionPlay, {passive:true});
+document.addEventListener('click', firstInteractionPlay);
+document.addEventListener('keydown', firstInteractionPlay);
 if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
 else init();
 </script>
