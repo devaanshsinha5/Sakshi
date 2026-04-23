@@ -200,7 +200,6 @@ body{font-family:'IM Fell English',Georgia,serif;background:var(--parchment);col
 }
   /* Sunflower petals */
 #petal-canvas{position:fixed;inset:0;pointer-events:none;z-index:999;display:none;}
-#petal-canvas.active{display:block;}
 .petal{
   position:absolute;
   width:9px;height:14px;
@@ -564,6 +563,7 @@ function openEnvelope() {
   setTimeout(function(){
     document.getElementById('page-1').style.display='none';
     document.getElementById('page-2').classList.add('visible');
+    spawnPetals();
     document.getElementById('p2-bg').style.display='block';
     window.scrollTo(0,0);
     setTimeout(function(){o.classList.remove('active');},200);
@@ -629,45 +629,29 @@ document.addEventListener('click', firstInteractionPlay);
 document.addEventListener('keydown', firstInteractionPlay);
 if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
 else init();
-  (function(){
-  var PETAL_COUNT = 18;
-  var created = false;
-
-  function spawnPetals(){
-    if(created) return;
-    created = true;
-    var canvas = document.getElementById('petal-canvas');
-    canvas.classList.add('active');
-    for(var i=0;i<PETAL_COUNT;i++){
-      var p = document.createElement('div');
-      p.className = 'petal';
-      var dur = 6 + Math.random()*7;
-      var delay = Math.random()*10;
-      var left = Math.random()*100;
-      var tilt = (Math.random()-0.5)*30;
-      var scale = 0.6 + Math.random()*0.7;
-      // slight golden variation
-      var hue = 38 + Math.floor(Math.random()*14);
-      p.style.cssText =
-        'left:'+left+'vw;'+
-        'top:-20px;'+
-        'animation-duration:'+dur+'s;'+
-        'animation-delay:'+delay+'s;'+
-        'transform:rotate('+tilt+'deg) scale('+scale+');'+
-        'background:hsl('+hue+',90%,48%);'+
-        'filter:saturate(1.1);';
-      canvas.appendChild(p);
-    }
+  (function spawnPetals(){
+  var canvas = document.getElementById('petal-canvas');
+  if(!canvas || canvas.dataset.spawned) return;
+  canvas.dataset.spawned = '1';
+  canvas.style.display = 'block';
+  for(var i=0;i<18;i++){
+    var p = document.createElement('div');
+    p.className = 'petal';
+    var dur = 6 + Math.random()*7;
+    var delay = Math.random()*10;
+    var left = Math.random()*100;
+    var tilt = (Math.random()-0.5)*30;
+    var scale = 0.6 + Math.random()*0.7;
+    var hue = 38 + Math.floor(Math.random()*14);
+    p.style.cssText =
+      'left:'+left+'vw;top:-20px;'+
+      'animation-duration:'+dur+'s;'+
+      'animation-delay:'+delay+'s;'+
+      'transform:rotate('+tilt+'deg) scale('+scale+');'+
+      'background:hsl('+hue+',90%,48%);'+
+      'filter:saturate(1.1);';
+    canvas.appendChild(p);
   }
-
-  // Watch for page-2 becoming visible
-  var observer = new MutationObserver(function(mutations){
-    mutations.forEach(function(m){
-      if(m.target.classList.contains('visible')) spawnPetals();
-    });
-  });
-  var p2 = document.getElementById('page-2');
-  if(p2) observer.observe(p2, {attributes:true, attributeFilter:['class']});
 })();
 </script>
   <div id="petal-canvas"></div>
